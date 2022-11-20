@@ -1,0 +1,61 @@
+# Node Modules
+node_modules/
+
+# npm workspace item nested
+*/package-lock.json
+
+# Compiled output
+config/lib/
+migrator/lib/
+packages/*/lib/
+server/lib/
+api/lib/
+
+# Test
+*/coverage/
+*.env
+
+# OS
+.DS_Store
+
+# Gradle
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+# Ignore Gradle build output directory
+build
