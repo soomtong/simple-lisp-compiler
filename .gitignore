@@ -5,11 +5,7 @@ node_modules/
 */package-lock.json
 
 # Compiled output
-config/lib/
-migrator/lib/
-packages/*/lib/
-server/lib/
-api/lib/
+**/lib/
 
 # Test
 */coverage/
