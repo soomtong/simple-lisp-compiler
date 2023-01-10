@@ -1,6 +1,12 @@
-import { ArgRegisters, BuiltinFunctions, OpCode, Register } from './compiler.constant';
+import { platform } from 'node:os';
+
+import { ArgRegisters, BuiltinFunctions, ExitCode, OpCode, Register } from './compiler.constant';
 
 import type { Literal } from './compiler.type';
+
+const getExitCode = (platform: string): string => {
+  return ExitCode[platform] ?? ExitCode.default;
+};
 
 const makeIndent = (length: number) => {
   let indentSpace = '';
@@ -12,7 +18,7 @@ const makeIndent = (length: number) => {
   return indentSpace;
 };
 
-export function emit(indentDepth: number, code: string, print: boolean = true): string {
+export function emit(indentDepth: number, code: string, print: boolean = false): string {
   const dump = `${makeIndent(indentDepth)}${code}`;
 
   if (print) {
@@ -71,10 +77,12 @@ export function emitPrefix() {
 }
 
 export function emitPostfix() {
+  const exitCode = getExitCode(platform());
   let dump = '';
+
   dump += emit(1, 'MOV RDI, RAX');
   // Set exit arg
-  dump += emit(1, 'MOV RAX, 0x2000001');
+  dump += emit(1, `MOV RAX, ${exitCode}`);
   // Set syscall number
   dump += emit(1, 'SYSCALL');
 

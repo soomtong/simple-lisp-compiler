@@ -14,3 +14,8 @@ export const ArgRegisters: Register[] = [Register.RDI, Register.RSI, Register.RD
 export const BuiltinFunctions: Record<OpCode, string> = {
   '+': 'plus',
 };
+
+export const ExitCode: Record<string, string> = {
+  darwin: '0x2000001',
+  default: '60',
+};
