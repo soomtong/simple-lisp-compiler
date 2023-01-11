@@ -63,7 +63,7 @@ export function compileArgument(arg: Literal | Literal[], destination?: string):
 
 export function emitPrefix() {
   let dump = '';
-  dump += emit(1, '.global _main_');
+  dump += emit(1, '.global _main');
   dump += emit(1, '.text');
 
   dump += emit(0, 'plus:');
@@ -71,7 +71,7 @@ export function emitPrefix() {
   dump += emit(1, 'MOV RAX, RDI');
   dump += emit(1, 'RET');
 
-  dump += emit(0, '_main_:');
+  dump += emit(0, '_main:');
 
   return dump;
 }
