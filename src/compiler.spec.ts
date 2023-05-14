@@ -65,13 +65,13 @@ describe('Emit compiled code for function call with opcode and arguments', () =>
 
 describe('Emit basic AST into assembly code', () => {
   it('should emit a assembly code!', () => {
-    const expected = `\t.global _main_
+    const expected = `\t.global _main
 \t.text
 plus:
 \tADD RDI, RSI
 \tMOV RAX, RDI
 \tRET
-_main_:
+_main:
 \tPUSH RDI
 \tPUSH RSI
 \tMOV RDI, 1
