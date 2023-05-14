@@ -1,4 +1,4 @@
-const { compile, parse } = require('./lib');
+const { compile, parse } = require('../lib');
 
 const program = '(+ 3 (+ 1 2)';
 const [parsed] = parse(program);
