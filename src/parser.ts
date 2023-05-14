@@ -1,3 +1,4 @@
+import { argv0 } from 'node:process';
 import type { Program, Token, ParsedTokens } from './parser.type';
 
 const getToken = (source: Program): Token => (Number.isNaN(Number(source)) ? source : Number(source));
@@ -19,7 +20,10 @@ export const parse = (program: Program): ParsedTokens => {
         break;
       }
       case ')':
-        tokens.push(getToken(currentToken));
+        // check for parameter section in function declaration
+        if (currentToken.length > 0) {
+          tokens.push(getToken(currentToken));
+        }
         return [tokens, program.substring(index + 1)];
       case ' ':
         tokens.push(getToken(currentToken));
