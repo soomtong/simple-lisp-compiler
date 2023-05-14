@@ -9,6 +9,7 @@
     "watch": "tsc -w",
     "build": "tsc",
     "clean": "rimraf ./lib ./node_modules ./package-lock.json",
+    "pretty": "prettier '**/*.{md,js,ts}' '!**/lib' --write",
     "test": "jest"
   },
   "devDependencies": {
